@@ -3,12 +3,20 @@ servlet3.0Demo
 
 servlet3.0对应的新特性可以参考 http://zhwj184.iteye.com/admin/blogs/1745426
 
+lib是用到模块化的两个jar包
+servlet3.0.ppt是关于servlet3.0的一个介绍ppt，有兴趣的欢迎看看。
+
 servlet3.0Demo  这个工程是eclipse j2ee 4.2版本下的web工程目录结构：
-1.主要有几部分的代码
-   可插拔的Web框架 web.xml web-fragment.xml的模块化
+
+主要有几部分的代码
+
+1.可插拔的Web框架 web.xml web-fragment.xml的模块化
+
 2.注解
    filter,contextListener,servlet，listener的示例；
+
 3.异步化示例
+
 4.文件上传示例
 
 fragment2对应的jar包META-INFO下的web-fragment.xml的内容：
