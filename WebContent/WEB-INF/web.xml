@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="GB18030"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd
+	http://java.sun.com/xml/ns/javaee/web-common_3_0.xsd
+	http://java.sun.com/xml/ns/javaee/web-fragment_3_0.xsd
+	">
+
+	<absolute-ordering>
+		<name>fragment2</name>
+		<name>fragment1</name> 
+	</absolute-ordering>
+	
+
+	<context-param>
+		<param-name>cona</param-name>
+		<param-value>2000</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>com.context.MyContext</listener-class>
+	</listener>
+	
+
+	<filter>
+		<filter-name>testFilter</filter-name>
+		<filter-class>com.filter.MyFilter</filter-class>
+		<init-param>
+			<param-name>filtea</param-name>
+			<param-value>1000</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>testFilter</filter-name>
+		<url-pattern>/plugin/*</url-pattern>
+	</filter-mapping>
+	
+	
+	
+	<servlet>
+		<servlet-name>mySerlvet</servlet-name>
+		<servlet-class>com.servlet.MySerlvet</servlet-class>
+		<init-param>
+			<param-name>inita</param-name>
+			<param-value>1000</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mySerlvet</servlet-name>
+		<url-pattern>/plugin/a</url-pattern>
+	</servlet-mapping>
+
+    <!-- 
+	<servlet>   
+	    <servlet-name>Test</servlet-name>   
+	    <jsp-file>/test.jsp</jsp-file>  
+	</servlet>  
+	<servlet-mapping>   
+	    <servlet-name>Test</servlet-name>   
+	    <url-pattern>/test/*</url-pattern>   
+	</servlet-mapping>  
+	 -->
+	<servlet>
+		<servlet-name>singleThreadServlet</servlet-name>
+		<servlet-class>com.servlet.SingleThreadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>singleThreadServlet</servlet-name>
+		<url-pattern>/singleServlet/*</url-pattern>
+	</servlet-mapping> 
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+<!-- cookie可以通过添加安全标志来创建，这确保了浏览器将不会在非 SSL/TLS 环境下传递cookie --><!-- SSL,URL --><!-- SSL传输数据 --><!-- FORM,CLIENT-CERT，DIGEST -->
+<!-- 
+	<session-config>
+		<session-timeout>15</session-timeout>
+		<cookie-config>
+			<secure>true</secure> 
+			<http-only>true</http-only>
+		</cookie-config> 
+		<tracking-mode>COOKIE</tracking-mode>
+	</session-config>
+	<security-role><role-name>R1</role-name></security-role>
+	<security-constraint>
+		<auth-constraint>
+			<role-name>R1</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+		     <web-resource-collection>
+                <web-resource-name>secure</web-resource-name>
+                <url-pattern>/secure/*</url-pattern>
+                <http-method>GET</http-method>
+                <http-method>POST</http-method>
+        </web-resource-collection>
+	</security-constraint>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>default</realm-name>
+	</login-config>
+ -->
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error.jsp</location>
+	</error-page>
+
+</web-app>
